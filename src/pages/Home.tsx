@@ -2,6 +2,8 @@ import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { Hero } from '@/components/features/Hero';
 import { FeaturedFlowers } from '@/components/features/FeaturedFlowers';
+import { BouquetCatalog } from '@/components/features/BouquetCatalog';
+import { CustomOrder } from '@/components/features/CustomOrder';
 import { About } from '@/components/features/About';
 import { Contact } from '@/components/features/Contact';
 
@@ -12,6 +14,8 @@ export function Home() {
       <main>
         <Hero />
         <FeaturedFlowers />
+        <BouquetCatalog />
+        <CustomOrder />
         <About />
         <Contact />
       </main>

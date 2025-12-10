@@ -1,4 +1,5 @@
-import { Flower2 } from 'lucide-react';
+import { Flower2, MessageCircle } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
 export function Header() {
   return (
@@ -12,12 +13,18 @@ export function Header() {
             </span>
           </div>
           
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden md:flex items-center gap-6">
             <a href="#home" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
               Beranda
             </a>
             <a href="#flowers" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
-              Bunga
+              Koleksi
+            </a>
+            <a href="#catalog" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+              Katalog
+            </a>
+            <a href="#custom-order" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+              Custom Order
             </a>
             <a href="#about" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
               Tentang
@@ -25,6 +32,14 @@ export function Header() {
             <a href="#contact" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
               Kontak
             </a>
+            <Button 
+              onClick={() => window.open('https://wa.me/6282233035319?text=Halo%20Golds%20Flowers', '_blank')}
+              size="sm"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground gap-2"
+            >
+              <MessageCircle className="w-4 h-4" />
+              WhatsApp
+            </Button>
           </nav>
         </div>
       </div>

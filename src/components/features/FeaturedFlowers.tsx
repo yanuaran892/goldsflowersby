@@ -1,21 +1,22 @@
 import { Card, CardContent } from '@/components/ui/card';
-import { Heart, Sparkles, Calendar } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Heart, Sparkles, Calendar, MessageCircle } from 'lucide-react';
 
 const categories = [
   {
-    title: 'SNACK BOUQET',
+    title: 'Buket Romantis',
     description: 'Ungkapkan cinta Anda dengan mawar memukau dan rangkaian elegan',
     image: 'https://images.unsplash.com/photo-1518709594023-6eab9bab7b23?q=80&w=800&auto=format&fit=crop',
     icon: Heart,
   },
   {
-    title: 'MONEY BOUQET',
+    title: 'Acara Spesial',
     description: 'Rangkaian sempurna untuk ulang tahun, anniversary, dan perayaan',
     image: 'https://images.unsplash.com/photo-1563241527-3004b7be0ffd?q=80&w=800&auto=format&fit=crop',
     icon: Sparkles,
   },
   {
-    title: 'WEDDING BOUQET',
+    title: 'Bunga Pernikahan',
     description: 'Bunga memukau untuk membuat hari istimewa Anda tak terlupakan',
     image: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=800&auto=format&fit=crop',
     icon: Calendar,
@@ -23,6 +24,12 @@ const categories = [
 ];
 
 export function FeaturedFlowers() {
+  const handleCategoryOrder = (categoryName: string) => {
+    const message = `Halo Golds Flowers, saya tertarik dengan ${categoryName}. Bisa tolong berikan info lebih lanjut?`;
+    const whatsappUrl = `https://wa.me/6282233035319?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+  };
+
   return (
     <section id="flowers" className="py-20 bg-background">
       <div className="container mx-auto px-4">
@@ -58,9 +65,16 @@ export function FeaturedFlowers() {
                   <h3 className="text-2xl font-serif font-semibold text-card-foreground mb-2">
                     {category.title}
                   </h3>
-                  <p className="text-muted-foreground">
+                  <p className="text-muted-foreground mb-4">
                     {category.description}
                   </p>
+                  <Button 
+                    onClick={() => handleCategoryOrder(category.title)}
+                    className="w-full bg-primary hover:bg-primary/90 text-primary-foreground gap-2"
+                  >
+                    <MessageCircle className="w-4 h-4" />
+                    Pesan Sekarang
+                  </Button>
                 </CardContent>
               </Card>
             );

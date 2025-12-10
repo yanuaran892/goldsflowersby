@@ -1,4 +1,5 @@
-import { Leaf, Award, Users } from 'lucide-react';
+import { Leaf, Award, Users, MessageCircle } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
 const features = [
   {
@@ -25,7 +26,7 @@ export function About() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
             <h2 className="text-4xl md:text-5xl font-serif font-bold text-accent-foreground mb-6">
-              Menghadirkan Keindahan Sejak 2016
+              Menghadirkan Keindahan Sejak 2020
             </h2>
             <p className="text-lg text-muted-foreground mb-6">
               Di Golds Flowers, kami percaya bahwa setiap rangkaian bunga menceritakan kisah yang unik. 
@@ -58,6 +59,20 @@ export function About() {
                   </div>
                 );
               })}
+            </div>
+
+            <div className="mt-8">
+              <Button 
+                onClick={() => {
+                  const message = 'Halo Golds Flowers, saya ingin konsultasi tentang rangkaian bunga untuk acara saya';
+                  window.open(`https://wa.me/6282233035319?text=${encodeURIComponent(message)}`, '_blank');
+                }}
+                size="lg" 
+                className="bg-primary hover:bg-primary/90 text-primary-foreground gap-2"
+              >
+                <MessageCircle className="w-5 h-5" />
+                Konsultasi Gratis via WhatsApp
+              </Button>
             </div>
           </div>
           
