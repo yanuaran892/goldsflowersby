@@ -25,7 +25,7 @@ export function About() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
             <h2 className="text-4xl md:text-5xl font-serif font-bold text-accent-foreground mb-6">
-              Menghadirkan Keindahan Sejak 2020
+              Menghadirkan Keindahan Sejak 2016
             </h2>
             <p className="text-lg text-muted-foreground mb-6">
               Di Golds Flowers, kami percaya bahwa setiap rangkaian bunga menceritakan kisah yang unik. 

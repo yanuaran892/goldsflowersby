@@ -3,19 +3,19 @@ import { Heart, Sparkles, Calendar } from 'lucide-react';
 
 const categories = [
   {
-    title: 'Buket Romantis',
+    title: 'SNACK BOUQET',
     description: 'Ungkapkan cinta Anda dengan mawar memukau dan rangkaian elegan',
     image: 'https://images.unsplash.com/photo-1518709594023-6eab9bab7b23?q=80&w=800&auto=format&fit=crop',
     icon: Heart,
   },
   {
-    title: 'Acara Spesial',
+    title: 'MONEY BOUQET',
     description: 'Rangkaian sempurna untuk ulang tahun, anniversary, dan perayaan',
     image: 'https://images.unsplash.com/photo-1563241527-3004b7be0ffd?q=80&w=800&auto=format&fit=crop',
     icon: Sparkles,
   },
   {
-    title: 'Bunga Pernikahan',
+    title: 'WEDDING BOUQET',
     description: 'Bunga memukau untuk membuat hari istimewa Anda tak terlupakan',
     image: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=800&auto=format&fit=crop',
     icon: Calendar,
