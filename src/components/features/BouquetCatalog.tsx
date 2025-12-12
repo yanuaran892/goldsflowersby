@@ -4,10 +4,10 @@ import { MessageCircle } from 'lucide-react';
 
 const bouquets = [
   {
-    name: 'Buket Mawar Merah Premium',
+    name: 'Buket Vas Bunga Premium',
     description: 'Buket mawar merah segar dengan 12 tangkai mawar pilihan, sempurna untuk ungkapan cinta',
-    price: 'Rp 250.000',
-    image: 'https://images.unsplash.com/photo-1518709594023-6eab9bab7b23?q=80&w=600&auto=format&fit=crop',
+    price: 'Rp 450.000',
+    image: 'https://iili.io/f7XOi11.md.png',
   },
   {
     name: 'Buket Mawar Pink Romantic',
