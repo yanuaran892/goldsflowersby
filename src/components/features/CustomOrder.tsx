@@ -200,3 +200,4 @@ Mohon informasi lebih lanjut. Terima kasih!`;
     </section>
   );
 }
+

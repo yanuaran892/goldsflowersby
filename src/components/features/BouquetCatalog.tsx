@@ -1,6 +1,7 @@
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { MessageCircle } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const bouquets = [
   {
@@ -77,6 +78,19 @@ const bouquets = [
   },
 ];
 
+const cardVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: i * 0.1,
+      duration: 0.5,
+      ease: "easeOut",
+    },
+  }),
+};
+
 export function BouquetCatalog() {
   const handleOrder = (bouquetName: string) => {
     const message = `Halo Golds Flowers, saya tertarik dengan ${bouquetName}. Apakah masih tersedia?`;
@@ -85,72 +99,101 @@ export function BouquetCatalog() {
   };
 
   return (
-    <section id="catalog" className="py-20 bg-accent">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-serif font-bold text-accent-foreground mb-4">
-            Katalog Bouquet
+    <section id="catalog" className="py-20 bg-black relative overflow-hidden">
+      {/* Decorative elements */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute top-0 right-1/4 w-96 h-96 bg-primary rounded-full blur-3xl animate-float"></div>
+        <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-primary rounded-full blur-3xl animate-float-slow"></div>
+      </div>
+      
+      <div className="container mx-auto px-4 relative z-10">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-5xl md:text-6xl font-serif font-bold mb-4">
+            <span className="gold-gradient">Katalog Bouquet</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <div className="w-24 h-1 bg-gradient-to-r from-transparent via-primary to-transparent mx-auto mb-6"></div>
+          <p className="text-lg text-gray-400 max-w-2xl mx-auto">
             Pilihan lengkap bouquet bunga segar untuk setiap momen spesial Anda
           </p>
-        </div>
+        </motion.div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {bouquets.map((bouquet, index) => (
-            <Card 
-              key={index} 
-              className="overflow-hidden border-border hover:shadow-xl transition-all duration-300 group bg-card"
+            <motion.div
+              key={index}
+              custom={index}
+              variants={cardVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
             >
-              <div className="relative h-64 overflow-hidden">
-                <img 
-                  src={bouquet.image} 
-                  alt={bouquet.name}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              </div>
-              <CardContent className="p-5">
-                <h3 className="text-xl font-serif font-semibold text-card-foreground mb-2 line-clamp-1">
-                  {bouquet.name}
-                </h3>
-                <p className="text-sm text-muted-foreground mb-3 line-clamp-2 min-h-[40px]">
-                  {bouquet.description}
-                </p>
-                <div className="flex items-center justify-between mb-4">
-                  <span className="text-2xl font-bold text-primary">
+              <Card 
+                className="overflow-hidden border-2 border-primary/20 hover:border-primary transition-all duration-500 group bg-gradient-to-b from-gray-900 to-black hover:shadow-2xl hover:shadow-primary/20 transform hover:scale-105"
+              >
+                <div className="relative h-64 overflow-hidden">
+                  <img 
+                    src={bouquet.image} 
+                    alt={bouquet.name}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
+                  <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/10 transition-colors duration-500" />
+                  
+                  {/* Price badge */}
+                  <div className="absolute top-4 right-4 bg-gradient-to-r from-primary via-yellow-400 to-primary text-black font-bold px-3 py-1 rounded-full text-sm shadow-lg">
                     {bouquet.price}
-                  </span>
+                  </div>
                 </div>
-                <Button 
-                  onClick={() => handleOrder(bouquet.name)}
-                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground gap-2"
-                >
-                  <MessageCircle className="w-4 h-4" />
-                  Pesan Sekarang
-                </Button>
-              </CardContent>
-            </Card>
+                <CardContent className="p-5">
+                  <h3 className="text-xl font-serif font-semibold text-foreground mb-2 line-clamp-1 group-hover:text-primary transition-colors">
+                    {bouquet.name}
+                  </h3>
+                  <p className="text-sm text-gray-400 mb-4 line-clamp-2 min-h-[40px]">
+                    {bouquet.description}
+                  </p>
+                  <Button 
+                    onClick={() => handleOrder(bouquet.name)}
+                    className="w-full bg-gradient-to-r from-primary/80 via-yellow-400/80 to-primary/80 hover:from-primary hover:via-yellow-400 hover:to-primary text-black font-bold gap-2 transition-all duration-300 hover:shadow-lg hover:shadow-primary/50"
+                  >
+                    <MessageCircle className="w-4 h-4" />
+                    Pesan Sekarang
+                  </Button>
+                </CardContent>
+              </Card>
+            </motion.div>
           ))}
         </div>
 
-        <div className="text-center mt-12">
-          <p className="text-muted-foreground mb-4">
-            Tidak menemukan yang Anda cari? Kami juga menerima custom order!
-          </p>
-          <Button 
-            onClick={() => {
-              const message = 'Halo Golds Flowers, saya ingin membuat custom bouquet. Bisa dibantu?';
-              window.open(`https://wa.me/6282233035319?text=${encodeURIComponent(message)}`, '_blank');
-            }}
-            size="lg" 
-            variant="outline"
-            className="gap-2"
-          >
-            <MessageCircle className="w-5 h-5" />
-            Custom Bouquet
-          </Button>
-        </div>
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="text-center mt-16"
+        >
+          <div className="bg-gradient-to-r from-transparent via-primary/10 to-transparent p-8 rounded-2xl border border-primary/20">
+            <p className="text-gray-400 mb-4 text-lg">
+              Tidak menemukan yang Anda cari? Kami juga menerima custom order!
+            </p>
+            <Button 
+              onClick={() => {
+                const message = 'Halo Golds Flowers, saya ingin membuat custom bouquet. Bisa dibantu?';
+                window.open(`https://wa.me/6282233035319?text=${encodeURIComponent(message)}`, '_blank');
+              }}
+              size="lg" 
+              className="gap-2 bg-gradient-to-r from-primary via-yellow-400 to-primary hover:shadow-xl hover:shadow-primary/50 text-black font-bold transition-all duration-300 hover:scale-110"
+            >
+              <MessageCircle className="w-5 h-5" />
+              Custom Bouquet
+            </Button>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
