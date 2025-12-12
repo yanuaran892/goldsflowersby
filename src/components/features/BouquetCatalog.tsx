@@ -7,7 +7,7 @@ const bouquets = [
     name: 'Buket Vas Bunga Premium',
     description: 'Buket mawar merah segar dengan 12 tangkai mawar pilihan, sempurna untuk ungkapan cinta',
     price: 'Rp 450.000',
-    image: 'https://iili.io/f7XOi11.md.png',
+    image: 'ttps://i.ibb.co.com/8DPKK2nS/Gemini-Generated-Image-dupi5odupi5odupi.png',
   },
   {
     name: 'Buket Mawar Pink Romantic',
