@@ -6,19 +6,19 @@ const categories = [
   {
     title: 'Buket Romantis',
     description: 'Ungkapkan cinta Anda dengan mawar memukau dan rangkaian elegan',
-    image: 'https://images.unsplash.com/photo-1518709594023-6eab9bab7b23?q=80&w=800&auto=format&fit=crop',
+    image: 'https://i.ibb.co.com/SDnRdb7n/Whats-App-Image-2025-12-12-at-14-34-58-113e50d8.jpg',
     icon: Heart,
   },
   {
     title: 'Acara Spesial',
     description: 'Rangkaian sempurna untuk ulang tahun, anniversary, dan perayaan',
-    image: 'https://images.unsplash.com/photo-1563241527-3004b7be0ffd?q=80&w=800&auto=format&fit=crop',
+    image: 'https://i.ibb.co.com/DPfTsKkn/Whats-App-Image-2025-12-12-at-14-34-58-1fa8ee4f.jpg',
     icon: Sparkles,
   },
   {
     title: 'Bunga Pernikahan',
     description: 'Bunga memukau untuk membuat hari istimewa Anda tak terlupakan',
-    image: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=800&auto=format&fit=crop',
+    image: 'https://i.ibb.co.com/n8Q43Dcy/Whats-App-Image-2025-12-12-at-14-34-59-bef2c259.jpg',
     icon: Calendar,
   },
 ];
